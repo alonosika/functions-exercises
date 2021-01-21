@@ -1,17 +1,21 @@
 //Question 1
 function myReverse(str) {
-  // your code here
-  return "";
+  return (parseFloat(str.toString().split('').reverse().join('')) * Math.sign(str));                 
 }
+console.log(myReverse(3445));
 
 //Question 2
 function allCombinations(str) {
-  let combinations = [];
-  // your code here
-
-  //
-  return combinations;
+  let listOfComb = [];
+   for(i=0;i<str.length;i++) {
+       for(j=i+1;j<str.length+1;j++) {
+           listOfComb.push(str.slice(i, j));
+       }
+   }
+   return listOfComb;
 }
+console.log(allCombinations(dog));
+
 
 //Question 3
 function allCaps(str) {
