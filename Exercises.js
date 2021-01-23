@@ -1,45 +1,79 @@
 //Question 1
 function myReverse(str) {
-  return (parseFloat(str.toString().split('').reverse().join('')) * Math.sign(str));                 
+	let out = "";
+	str = str.toString(10);
+	for (let i = str.length - 1; i >= 0; i--) {
+		out += str[i];
+	}
+	return out;
 }
-console.log(myReverse(3445));
 
 //Question 2
 function allCombinations(str) {
-  let listOfComb = [];
-   for(i=0;i<str.length;i++) {
-       for(j=i+1;j<str.length+1;j++) {
-           listOfComb.push(str.slice(i, j));
-       }
-   }
-   return listOfComb;
+	let combinations = [];
+	let temp = "";
+	for (let i = 0; i < str.length; i++) {
+		temp = "";
+		for (let j = i; j < str.length; j++) {
+			temp += str[j];
+			combinations.push(temp);
+		}
+	}
+	return combinations;
 }
-console.log(allCombinations(dog));
-
 
 //Question 3
 function allCaps(str) {
-  // your code here
-  return "";
+	// your code here
+
+	let out = str[0].toUpperCase();
+	for (let i = 1; i < str.length; i++) {
+		if (str[i - 1] === " ") {
+			out += str[i].toUpperCase();
+		} else {
+			out += str[i];
+		}
+	}
+	return out;
 }
 
 //Question 4
 function myPower(x, n) {
-  // your code here
-  return "";
+	let ans = 1;
+	for (let i = 0; i < n; i++) {
+		ans *= x;
+	}
+	return ans;
 }
 
 //Question 5
 function getFirstNotRepeating(str) {
-  // your code here
-  return "";
+	let exist = true;
+	for (let i = 0; i < str.length; i++) {
+		exist = true;
+		for (let j = 0; j < str.length; j++) {
+			if (str[i] === str[j] && i !== j) {
+				exist = false;
+			}
+		}
+		if (exist) {
+			return str[i];
+		}
+	}
+	return "Not Found";
 }
 
 //Question 6 (Bonus)
 function isPrefectNumber(num) {
-  // your code here
-  return "I'm not interested in the bonus question :(";
+	let sum = 0;
+	for (let i = 1; i < num; i++) {
+		if (num % i === 0) {
+			sum += i;
+		}
+	}
+	return num === sum;
 }
+
 
 // *** Playground ***
 // Feel free to run and test your code here on your own
